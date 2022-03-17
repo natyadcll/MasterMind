@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">MasterMind</string>
+    <string name="classic_mode">Classic Mode</string>
+    <string name="bet_mode">Bet Mode</string>
+    <string name="name">Name</string>
+    <string name="user_name">User Name</string>
+    <string name="welcome">Welcome To</string>
+    <string name="choose_interval">Choose the interval for Guessing your Number [0 - x] </string>
+    <string name="play">PLAY!!!</string>
+    <string name="next">Next >></string>
+    <string name="interval">X = </string>
+    <string name="guess">Your Guess?</string>
+    <string name="tryAgain">Please Try Again</string>
+    <string name="wrongSelection">Wrong guess, Try again</string>
+    <string name="Lost">You Lost</string>
+    <string name="lostInfo">The Classic Mode Ended, Play Bet Mode to win Prizes</string>
+    <string name="endGame">End Game</string>
+    <string name="playAgain">Play Again</string>
+    <string-array name="intervals">
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+    </string-array>
+</resources>
