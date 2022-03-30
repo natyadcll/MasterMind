@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import java.util.Random;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -22,6 +23,7 @@ public class ClassicModeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_classic_mode);
         AtomicInteger tries = new AtomicInteger();
+        AtomicInteger randomNumber = new AtomicInteger();
         this.nextAndPlayButton = (Button)findViewById(R.id.mainButton);
         this.nextAndPlayButton.setOnClickListener((View view) -> {
             int stage = getStage();
@@ -41,12 +43,14 @@ public class ClassicModeActivity extends AppCompatActivity {
                 infoTextView.setVisibility(View.VISIBLE);
                 tries.set(getTotalTries(interval));
                 infoTextView.setText("Total tries left: " + tries);
+                randomNumber.set(randomNumber(interval));
             }
-            else if(stage == 2 && isTextBoxNotEmpty(R.id.guessTestBox) && tries.get() != 0)
+            else if(stage == 2 && isTextBoxNotEmpty(R.id.guessTestBox) && tries.get() != 1)
             {
                 System.out.println("Stage 2 entered");
                 int gussednumber;
                 gussednumber = Integer.parseInt(guessTextBox.getText().toString());
+                System.out.println(gussednumber);
                 if(gussednumber < 0 || gussednumber > Integer.parseInt(intervalTextView.getSelectedItem().toString()))
                 {
                     guessTextBox.setText("");
@@ -54,9 +58,14 @@ public class ClassicModeActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    if(guess(gussednumber, interval))
+                    if(guess(gussednumber, randomNumber.get()))
                     {
                         System.out.println("Won");
+                        System.out.println("Starting Winning activity");
+                        Intent resultModeActivity = new Intent(this, ClassicModeResultActivity.class);
+                        resultModeActivity.putExtra("result","You WON!");
+                        startActivity(resultModeActivity);
+                        finish();
                     }
                     else
                     {
@@ -68,19 +77,20 @@ public class ClassicModeActivity extends AppCompatActivity {
                     }
                 }
             }
-            else
+            else if(tries.get() == 1)
             {
                 System.out.println("Starting Loosing activity");
-                Intent LostmodeActivity = new Intent(this, ClassicModeLostActivity.class);
-                startActivity(LostmodeActivity);
-
+                Intent resultModeActivity = new Intent(this, ClassicModeResultActivity.class);
+                resultModeActivity.putExtra("result","You LOST");
+                startActivity(resultModeActivity);
+                finish();
             }
         });
 
     }
 
     private int getTotalTries(int num) {
-        return (num / 10) * 2;
+        return (num / 10) * 5;
     }
 
     private int getStage() {
@@ -102,9 +112,17 @@ public class ClassicModeActivity extends AppCompatActivity {
     }
 
 
-    public boolean guess(int playerGuess, int interval)
+    public boolean guess(int playerGuess, int randomNumber)
     {
-        return false;
+        System.out.println("The Correct Guess is: "+ randomNumber);
+        return playerGuess == randomNumber;
+    }
 
+    private int randomNumber(int interval)
+    {
+        Random random = new Random();
+        int number = random.nextInt(interval + 1);
+        System.out.println("The Correct Guess is: "+number);
+        return number;
     }
 }
