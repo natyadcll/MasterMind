@@ -58,7 +58,7 @@ There will also be a Bet Mode. The game will follow the same as the classic mode
 ● Then the user chooses if the user wants to play classic or bet mode.
 ● After selecting the classic mode. User will choose between which number
 he/she wants to guess(there will be dropdown menu for(10, 20, 30 , 40,
-50)
+50).
 ● A text box will appear in which the user will enter his or her guess.
 ● If the user selects between 0 to 10, he will get 2 chances to guess the
 number.
