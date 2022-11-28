@@ -1,22 +1,12 @@
 # MasterMind
 Guess the number, as many times you can guess in a row. By VYNN
 
-Team Member #1: Vachaspathy Sreedhar
-Email: vachas@my.yorku.ca
-Section: M
-Lab: 01
-
-Team Member #2: Yashitha Madanapalli
-Email: yashi22@my.yorku.ca
-Section: M
-Lab: 02
-
-Team Member #3: Nitya Desai
+Team Member #1: Nitya Desai
 Email: nitya02@my.yorku.ca
 Section: P
 Lab: 02
 
-Team Member #4: Nataly De Castro
+Team Member #2: Nataly De Castro
 Email: nadcll06@my.yorku.ca
 Section P
 Lab: 01
